@@ -3,27 +3,35 @@ import React from 'react';
 import CoinList from './CoinList';
 import CoinView from './Coin';
 import Loader from './Loader';
-import { fetchExchangesList } from './CoingeckoAPI';
+import { fetchExchanges } from './CoingeckoAPI';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = { hash: window.location.hash };
   }
 
   componentDidMount() {
-    fetchExchangesList()
+    fetchExchanges()
       .then(data => this.setState({ data }));
+    
+    this.updateHash = () => this.setState({ hash: window.location.hash });
+    window.addEventListener('hashchange', this.updateHash);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this.updateHash);
+    delete this.updateHash;
   }
 
   render() {
-    if (!this.state.data) {
-      return <Loader/>;
+    if (this.state.hash) {
+      return <CoinView id={this.state.hash}/>;
     }
 
-    if (window.location.hash) {
-      return <CoinView id={window.location.hash}/>;
+    if (!this.state.data) {
+      return <Loader/>;
     }
 
     return <CoinList coins={this.state.data}/>;
