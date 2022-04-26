@@ -3,6 +3,7 @@ import React from 'react';
 import CoinList from './CoinList';
 import CoinView from './Coin';
 import Loader from './Loader';
+import { fetchExchangesList } from './CoingeckoAPI';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,8 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://api.coingecko.com/api/v3/exchanges/list')
-      .then(response => response.json())
+    fetchExchangesList()
       .then(data => this.setState({ data }));
   }
 
