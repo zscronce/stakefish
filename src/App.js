@@ -1,5 +1,7 @@
 import React from 'react';
 
+import CoinList from './CoinList';
+import CoinView from './Coin';
 import Loader from './Loader';
 
 class App extends React.Component {
@@ -17,10 +19,14 @@ class App extends React.Component {
 
   render() {
     if (!this.state.data) {
-      return <Loader/>
+      return <Loader/>;
     }
 
-    return <p>{JSON.stringify(this.state.data)}</p>;
+    if (window.location.hash) {
+      return <CoinView id={window.location.hash}/>;
+    }
+
+    return <CoinList coins={this.state.data}/>;
   }
 }
 
