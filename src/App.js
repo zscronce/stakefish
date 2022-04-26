@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Loader from './Loader';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,20 +15,12 @@ class App extends React.Component {
       .then(data => this.setState({ data }));
   }
 
-  renderData() {
-    return <p>{JSON.stringify(this.state.data)}</p>;
-  }
-
-  renderLoader() {
-    return (
-      <div className="progress">
-        <div className="indeterminate"/>
-      </div>
-    );
-  }
-
   render() {
-    return this.state.data ? this.renderData() : this.renderLoader();
+    if (!this.state.data) {
+      return <Loader/>
+    }
+
+    return <p>{JSON.stringify(this.state.data)}</p>;
   }
 }
 
