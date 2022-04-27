@@ -2,7 +2,7 @@ import React from "react";
 import { fetchExchange, fetchExchangeTickers, fetchExchangeVolumeChart } from "./CoingeckoAPI";
 import Table from "./Table";
 
-class Coin extends React.Component {
+class ExchangeView extends React.Component {
     constructor(props) {
         super(props);
 
@@ -34,4 +34,4 @@ class Coin extends React.Component {
     }
 }
 
-export default Coin;
+export default ExchangeView;

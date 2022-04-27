@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CoinList from './CoinList';
-import CoinView from './Coin';
+import ExchangeListView from './ExchangeListView';
+import ExchangeView from './ExchangeView';
 import Loader from './Loader';
 import { fetchExchanges } from './CoingeckoAPI';
 
@@ -27,14 +27,14 @@ class App extends React.Component {
 
   render() {
     if (this.state.hash) {
-      return <CoinView coinId={this.state.hash}/>;
+      return <ExchangeView coinId={this.state.hash}/>;
     }
 
     if (!this.state.data) {
       return <Loader/>;
     }
 
-    return <CoinList coins={this.state.data}/>;
+    return <ExchangeListView exchanges={this.state.data}/>;
   }
 }
 
