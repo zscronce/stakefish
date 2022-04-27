@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render() {
     if (this.state.hash) {
-      return <CoinView id={this.state.hash}/>;
+      return <CoinView coinId={this.state.hash}/>;
     }
 
     if (!this.state.data) {
