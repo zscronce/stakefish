@@ -1,5 +1,5 @@
 const COINGECKO_URL = 'https://api.coingecko.com/api/v3';
-const DEFAULT_NUM_EXCHANGES = 10;
+const DEFAULT_NUM_EXCHANGES = 100;
 
 function fetchJSON(url) {
     return fetch(url)
@@ -23,6 +23,6 @@ export function fetchExchangeTickers(id) {
     return fetchJSON(COINGECKO_URL + '/exchanges/' + id + '/tickers');
 }
 
-export function fetchExchangeVolumeChart(id) {
-    return fetchJSON(COINGECKO_URL + '/exchanges/' + id + '/volume_chart');
-}
+// export function fetchExchangeVolumeChart(id) {
+//     return fetchJSON(COINGECKO_URL + '/exchanges/' + id + '/volume_chart');
+// }

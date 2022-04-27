@@ -1,4 +1,4 @@
-function Loader() {
+function LoaderView() {
   return (
     <div className="progress">
       <div className="indeterminate"/>
@@ -6,4 +6,4 @@ function Loader() {
   );
 }
 
-export default Loader;
+export default LoaderView;

@@ -1,5 +1,6 @@
 export function ExchangeListItemView(props) {
     const { exchange } = props;
+
     return (
         <li className="collection-item avatar">
             <a href={'#' + exchange.id}>
@@ -14,7 +15,10 @@ export function ExchangeListItemView(props) {
                 </a>
             </span>
             <p>
-                <a href={exchange.url}>{exchange.url}</a> ({exchange.country})
+                <a href={exchange.url}>
+                    {exchange.url}
+                </a>
+                ({exchange.country})
             </p>
         </li>
     );
