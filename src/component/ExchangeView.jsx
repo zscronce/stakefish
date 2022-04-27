@@ -17,16 +17,6 @@ class ExchangeView extends React.Component {
             .then(exchange => this.setState({ exchange }));
     }
 
-    renderSocialLink(linkUrl, imgUrl, alt) {
-        if (!linkUrl) {
-            return null;
-        }
-
-        return <a href={linkUrl}>
-            <img className="social-link" src={imgUrl} alt={alt}/>
-        </a>;
-    }
-
     render() {
         const { exchange, tickers } = this.state;
 
