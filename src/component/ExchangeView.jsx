@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchExchange, fetchExchangeTickers } from "../CoingeckoAPI";
+import { fetchExchange } from "../CoingeckoAPI";
 import LoaderView from "./LoaderView";
 import SocialLinkView from "./SocialLinkView";
 
@@ -9,17 +9,12 @@ class ExchangeView extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            exchange: null,
-            tickers: null,
-        };
+        this.state = { exchange: null };
     }
 
     componentDidMount() {
         fetchExchange(this.props.coinId)
             .then(exchange => this.setState({ exchange }));
-        fetchExchangeTickers(this.props.coinId)
-            .then(data => this.setState({ tickers: data.tickers }));
     }
 
     renderSocialLink(linkUrl, imgUrl, alt) {

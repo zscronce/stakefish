@@ -18,11 +18,3 @@ export function fetchExchangesList() {
 export function fetchExchange(id) {
     return fetchJSON(COINGECKO_URL + '/exchanges/' + id);
 }
-
-export function fetchExchangeTickers(id) {
-    return fetchJSON(COINGECKO_URL + '/exchanges/' + id + '/tickers');
-}
-
-// export function fetchExchangeVolumeChart(id) {
-//     return fetchJSON(COINGECKO_URL + '/exchanges/' + id + '/volume_chart');
-// }
